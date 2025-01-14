@@ -17,5 +17,10 @@ def show_calculator():
         elif operation == 'Multiply':
             result = num1 * num2
         elif operation == 'Divide':
-            result = num1 / num2
-            st.write(f'The totalt is {result}')
+            if num2 != 0:
+                result = num1 / num2
+            else:
+                st.error("Cannot divide by zero")
+                return
+        
+        st.write(f'The result is {result}')

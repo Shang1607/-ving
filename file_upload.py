@@ -26,20 +26,21 @@ def show_file_upload():
             st.error(f"An error occurred: {e}")
             st.stop()
 
-            head = st.checkbox('Show the first 5 rows', key='head')
-            if head:
-                st.write(df.head())
-            tail = st.checkbox('Show the last 5 rows', key='tail')
-            if tail:
-                st.write(df.tail())
-            describe = st.checkbox('Show the description', key='describe')
-            if describe:
-                st.write(df.describe())
+        # These blocks should be outside the try block
+        head = st.checkbox('Show the first 5 rows', key='head')
+        if head:
+            st.write(df.head())
+        tail = st.checkbox('Show the last 5 rows', key='tail')
+        if tail:
+            st.write(df.tail())
+        describe = st.checkbox('Show the description', key='describe')
+        if describe:
+            st.write(df.describe())
 
-            numeric_columns = df.select_dtypes(include=['number']).columns
-            selected_column = st.selectbox('Select a column', numeric_columns)
-            st.write(df[selected_column].describe())
+        numeric_columns = df.select_dtypes(include=['number']).columns
+        selected_column = st.selectbox('Select a column', numeric_columns)
+        st.write(df[selected_column].describe())
 
-            bins = st.slider('Select the number of bins', 5, 50, 10)
-            fig = px.histogram(df, x=selected_column, nbins=bins)
-            st.plotly_chart(fig)
+        bins = st.slider('Select the number of bins', 5, 50, 10)
+        fig = px.histogram(df, x=selected_column, nbins=bins)
+        st.plotly_chart(fig)

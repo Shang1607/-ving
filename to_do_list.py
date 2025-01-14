@@ -21,4 +21,4 @@ def show_to_do_list():
 
     if st.button('Clear completed tasks'):
         st.session_state.tasks = [task for task in st.session_state.tasks if task not in completed_tasks]
-        st.experimental_rerun()
+        st.rerun()

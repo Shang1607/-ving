@@ -4,13 +4,17 @@ from file_upload import show_file_upload
 from to_do_list import show_to_do_list
 from calculator import show_calculator
 from public_Api import public_Api
+from dataset import dataset
+from pipeline import pipeline
 
 st.sidebar.header('Navigator')
-page = st.sidebar.selectbox('Select a page', ['Home', 
+page = st.sidebar.radio('Select a page', ['Home', 
                                               'File Upload', 
                                               'To do list', 
                                               'Calculator', 
-                                              'Public API'])
+                                              'Public API',
+                                              'Dataset', 
+                                              'pipeline'])
 
 if page == 'Home':
     show_home()
@@ -22,3 +26,7 @@ elif page == 'To do list':
     show_to_do_list()
 elif page == 'Public API':
     public_Api()
+elif page == 'Dataset':
+    dataset()
+elif page == 'pipeline':
+    pipeline()
