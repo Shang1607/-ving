@@ -6,6 +6,8 @@ from calculator import show_calculator
 from public_Api import public_Api
 from dataset import dataset
 from pipeline import pipeline
+from LLM import LLM
+import streamlit as st
 
 st.sidebar.header('Navigator')
 page = st.sidebar.radio('Select a page', ['Home', 
@@ -14,7 +16,8 @@ page = st.sidebar.radio('Select a page', ['Home',
                                               'Calculator', 
                                               'Public API',
                                               'Dataset', 
-                                              'pipeline'])
+                                              'pipeline',
+                                              "LLM"])
 
 if page == 'Home':
     show_home()
@@ -30,3 +33,5 @@ elif page == 'Dataset':
     dataset()
 elif page == 'pipeline':
     pipeline()
+elif page == 'LLM':    
+    LLM()    
